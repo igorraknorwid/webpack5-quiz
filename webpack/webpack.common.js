@@ -1,10 +1,18 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
+  entry: {
+    main: path.resolve(__dirname, '..', './src/index.tsx'),
+    second: './src/index.js',
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+  },
+  optimization: {
+    splitChunks: { chunks: 'all' },
   },
   module: {
     rules: [
@@ -19,7 +27,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -33,12 +45,14 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, '..', './build'),
-    filename: 'bundle.js',
+    filename: '[name].[contenthash].js',
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './src/index.html'),
     }),
+    new MiniCssExtractPlugin(),
   ],
   stats: 'errors-only',
 }
