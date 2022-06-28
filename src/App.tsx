@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite'
 import { Context } from './index'
 import { Counter } from './Counter'
 
-export const App = () => {
+const App = () => {
   const { store } = React.useContext(Context)
   console.log('store.test', store.test)
   return (
@@ -13,3 +13,5 @@ export const App = () => {
     </>
   )
 }
+
+export default observer(App)

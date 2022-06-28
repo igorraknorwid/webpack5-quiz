@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import React, { createContext } from 'react'
-import { App } from './App'
+import App from './App'
 import './index.css'
 import './index.scss'
 import appStore from './store/store'
