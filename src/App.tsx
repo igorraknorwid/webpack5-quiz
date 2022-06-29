@@ -3,7 +3,6 @@ import { observer } from 'mobx-react-lite'
 
 import { Layout } from './components/layout/Layout'
 import { Start } from './pages/start/Start'
-import { Counter } from './Counter'
 
 const App = () => {
   return (
@@ -13,7 +12,6 @@ const App = () => {
           <Route index element={<Start />} />
         </Route>
       </Routes>
-      <Counter />
     </>
   )
 }

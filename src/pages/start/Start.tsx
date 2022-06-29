@@ -4,8 +4,13 @@ import { Context } from '../../index'
 
 const Start = () => {
   const { store } = React.useContext(Context)
-  console.log('store.test', store.test)
-  return <main className="main">Start</main>
+
+  return (
+    <main className="main">
+      <h1>Test</h1>
+      <div>store.test: {store.test}</div>
+    </main>
+  )
 }
 
 export { Start }
