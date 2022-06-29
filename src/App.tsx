@@ -1,14 +1,18 @@
-import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
-import { Context } from './index'
+
+import { Layout } from './components/layout/Layout'
+import { Start } from './pages/start/Start'
 import { Counter } from './Counter'
 
 const App = () => {
-  const { store } = React.useContext(Context)
-  console.log('store.test', store.test)
   return (
     <>
-      <h1>{store.test}</h1>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Start />} />
+        </Route>
+      </Routes>
       <Counter />
     </>
   )

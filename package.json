@@ -24,7 +24,8 @@
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

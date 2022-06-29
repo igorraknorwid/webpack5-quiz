@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom'
 import React, { createContext } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 import './index.css'
 import './index.scss'
@@ -17,7 +18,9 @@ export const Context = createContext<State>({
 
 ReactDOM.render(
   <Context.Provider value={{ store }}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Context.Provider>,
   document.getElementById('root')
 )
