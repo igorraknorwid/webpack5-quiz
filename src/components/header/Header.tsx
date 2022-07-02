@@ -1,5 +1,18 @@
+import React from 'react'
+import { observer } from 'mobx-react-lite'
+
+import { Context } from '../../index'
+
 const Header = () => {
-  return <header className="header">Header</header>
+  const { store } = React.useContext(Context)
+  return (
+    <header className="header">
+      <div>
+        <h2>Quiz App</h2>
+        {store.input.value && <div>Hello {store.input.value}!</div>}
+      </div>
+    </header>
+  )
 }
 
-export { Header }
+export default observer(Header)
