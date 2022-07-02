@@ -1,9 +1,13 @@
 import { makeAutoObservable } from 'mobx'
 
+import InputClass from './input'
+
 export default class Store {
-  test: string
+  input: InputClass
+
   constructor() {
-    this.test = 'Hello World'
+    this.input = new InputClass()
+
     makeAutoObservable(this)
   }
 }

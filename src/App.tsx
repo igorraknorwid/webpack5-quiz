@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import { observer } from 'mobx-react-lite'
 
 import { Layout } from './components/layout/Layout'
-import { Start } from './pages/start/Start'
+import Start from './pages/start/Start'
 import Question from './pages/question/Question'
 
 const App = () => {

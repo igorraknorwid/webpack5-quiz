@@ -1,10 +1,10 @@
 import React from 'react'
+import { observer } from 'mobx-react-lite'
+import { Link } from 'react-router-dom'
 import { BrowserView, MobileView } from 'react-device-detect'
 
 import { Context } from '../../index'
-import jpg from '../../assets/image/jpg.jpg'
-import png from '../../assets/image/png.png'
-import svg_img from '../../assets/image/svg.svg'
+import Input from '../../components/layout/input/Input'
 
 const Start = () => {
   const { store } = React.useContext(Context)
@@ -12,12 +12,10 @@ const Start = () => {
   return (
     <main className="main">
       <BrowserView>
-        <h1>This is rendered only in browser</h1>
-        <h1>Test</h1>
-        <div>store.test: {store.test}</div>
-        <img src={jpg} alt="" />
-        <img src={png} alt="" />
-        <img src={svg_img} alt="" />
+        <Input />
+        <nav>
+          <Link to="quiz/1">Start</Link>
+        </nav>
       </BrowserView>
       <MobileView>
         <h1>This is rendered only on mobile</h1>
@@ -26,4 +24,4 @@ const Start = () => {
   )
 }
 
-export { Start }
+export default observer(Start)
