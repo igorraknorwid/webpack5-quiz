@@ -124,11 +124,11 @@ export default class QuizItem {
     }
   }
 
-  onQuizItemClick(payload: IQuizItem) {
+  onQuizItemClick(id: number) {
     this.item = {
       ...this.item,
       answers: [...this.item.answers].map((answer) => {
-        if (answer.id === payload.id) {
+        if (answer.id === id) {
           return { ...answer, clicked: true }
         }
         return { ...answer, clicked: false }

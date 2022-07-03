@@ -14,7 +14,8 @@ const Question = () => {
     } else {
       navigate('/')
     }
-  })
+  }, [id])
+
   return (
     <>
       {store.quizItem.item?.id ? (
@@ -23,6 +24,33 @@ const Question = () => {
         </div>
       ) : (
         <div>Something are going wrong</div>
+      )}
+
+      {store.quizItem.item.answers ? (
+        <div>
+          {store.quizItem.item.answers.map((item) => {
+            return (
+              <button
+                key={item.id}
+                className={
+                  item.clicked
+                    ? `item active ${item.status ? 'right' : 'fault'}`
+                    : `item`
+                }
+                onClick={() => {
+                  store.quizItem.onQuizItemClick(item.id)
+                  if (item.status) {
+                    store.timer.addTime(10)
+                  }
+                }}
+              >
+                {item.text}
+              </button>
+            )
+          })}
+        </div>
+      ) : (
+        <h2>Something are going wrong</h2>
       )}
 
       {store.quizItem.item?.next ? (

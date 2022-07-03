@@ -2,3 +2,19 @@ h1 {
   background-color: black;
   color: aliceblue;
 }
+
+.item {
+  padding: 10px;
+  cursor: pointer;
+}
+.active {
+  color: aliceblue;
+}
+
+.right {
+  background-color: lawngreen;
+}
+
+.fault {
+  background-color: rgb(71, 6, 6);
+}

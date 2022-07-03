@@ -14,7 +14,13 @@ const Start = () => {
       <BrowserView>
         <Input />
         <nav>
-          <Link to="quiz/1">Start</Link>
+          <button
+            onClick={() => {
+              store.timer.setTimer()
+            }}
+          >
+            <Link to="quiz/1">Start</Link>
+          </button>
         </nav>
       </BrowserView>
       <MobileView>
