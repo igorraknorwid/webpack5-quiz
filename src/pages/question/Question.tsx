@@ -42,6 +42,14 @@ const Question = () => {
                   if (item.status) {
                     store.timer.addTime(10)
                   }
+
+                  setTimeout(() => {
+                    if (store.quizItem.item?.next) {
+                      navigate(`/quiz/${Number(id) + 1}`)
+                    } else {
+                      navigate(`/finish`)
+                    }
+                  }, 1000)
                 }}
               >
                 {item.text}

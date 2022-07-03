@@ -79,7 +79,7 @@ const moke_quiz: IQuizItem[] = [
   },
   {
     id: 3,
-    next: false,
+    next: true,
     question: 'Question 3',
     answers: [
       {
@@ -98,6 +98,68 @@ const moke_quiz: IQuizItem[] = [
         id: 3,
         clicked: false,
         status: true,
+        text: 'Answer 3',
+      },
+      {
+        id: 4,
+        clicked: false,
+        status: false,
+        text: 'Answer 4',
+      },
+    ],
+  },
+  {
+    id: 4,
+    next: true,
+    question: 'Question 4',
+    answers: [
+      {
+        id: 1,
+        clicked: false,
+        status: false,
+        text: 'Answer 1',
+      },
+      {
+        id: 2,
+        clicked: false,
+        status: false,
+        text: 'Answer 2',
+      },
+      {
+        id: 3,
+        clicked: false,
+        status: false,
+        text: 'Answer 3',
+      },
+      {
+        id: 4,
+        clicked: false,
+        status: true,
+        text: 'Answer 4',
+      },
+    ],
+  },
+  {
+    id: 5,
+    next: false,
+    question: 'Question 5',
+    answers: [
+      {
+        id: 1,
+        clicked: false,
+        status: false,
+        text: 'Answer 1',
+      },
+      {
+        id: 2,
+        clicked: false,
+        status: false,
+        text: 'Answer 2',
+      },
+      {
+        id: 3,
+        clicked: false,
+        status: false,
         text: 'Answer 3',
       },
       {
