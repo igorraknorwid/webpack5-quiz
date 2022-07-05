@@ -1,18 +1,5 @@
 import { makeAutoObservable } from 'mobx'
-
-interface IAnswers {
-  id: number
-  clicked: boolean
-  status: boolean
-  text: string
-}
-
-interface IQuizItem {
-  id: number
-  question: string
-  answers: IAnswers[]
-  next: boolean
-}
+import { IQuizItem } from '../../models'
 
 const moke_quiz: IQuizItem[] = [
   {

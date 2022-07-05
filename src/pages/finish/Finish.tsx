@@ -5,6 +5,9 @@ import { Context } from '../../index'
 
 const Finish = () => {
   const { store } = React.useContext(Context)
+  React.useEffect(() => {
+    store.timer.stopTimer()
+  })
 
   return (
     <div>

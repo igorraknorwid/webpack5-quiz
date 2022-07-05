@@ -3,6 +3,8 @@ import { observer } from 'mobx-react-lite'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
 import { Context } from '../../index'
+import { IAnswer } from '../../models'
+import Navigation from '../../components/navigation/Navigation'
 
 const Question = () => {
   const { id } = useParams()
@@ -15,6 +17,28 @@ const Question = () => {
       navigate('/')
     }
   }, [id])
+  React.useEffect(() => {
+    if (store.timer.timer === 0) {
+      navigate('/finish')
+    }
+  }, [store.timer.timer])
+
+  const clickHandler = (item: IAnswer) => {
+    //render logic
+    store.quizItem.onQuizItemClick(item.id)
+    //timer logic
+    if (item.status) {
+      store.timer.addTime(10)
+    }
+    // navigation
+    setTimeout(() => {
+      if (store.quizItem.item?.next) {
+        navigate(`/quiz/${Number(id) + 1}`)
+      } else {
+        navigate(`/finish`)
+      }
+    }, 1000)
+  }
 
   return (
     <>
@@ -38,18 +62,7 @@ const Question = () => {
                     : `item`
                 }
                 onClick={() => {
-                  store.quizItem.onQuizItemClick(item.id)
-                  if (item.status) {
-                    store.timer.addTime(10)
-                  }
-
-                  setTimeout(() => {
-                    if (store.quizItem.item?.next) {
-                      navigate(`/quiz/${Number(id) + 1}`)
-                    } else {
-                      navigate(`/finish`)
-                    }
-                  }, 1000)
+                  clickHandler(item)
                 }}
               >
                 {item.text}
@@ -60,16 +73,7 @@ const Question = () => {
       ) : (
         <h2>Something are going wrong</h2>
       )}
-
-      {store.quizItem.item?.next ? (
-        <nav>
-          <Link to={`/quiz/${Number(id) + 1}`}>Next</Link>
-        </nav>
-      ) : (
-        <nav>
-          <Link to={`/finish`}>Finish</Link>
-        </nav>
-      )}
+      <Navigation />
     </>
   )
 }

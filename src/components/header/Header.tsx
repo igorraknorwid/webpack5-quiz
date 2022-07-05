@@ -9,7 +9,7 @@ const Header = () => {
     <header className="header">
       <div>
         <h2>Quiz App</h2>
-        {store.input.value && <div>Hello {store.input.value}!</div>}
+
         <div>Timer : {store.timer.timer}</div>
       </div>
     </header>
