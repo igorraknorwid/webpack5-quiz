@@ -16,7 +16,7 @@ const Start = () => {
         <nav>
           <button
             onClick={() => {
-              store.timer.setTimer()
+              store.timer.startTimer()
             }}
           >
             <Link to="quiz/1">Start</Link>

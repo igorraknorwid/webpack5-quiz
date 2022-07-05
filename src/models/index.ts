@@ -5,6 +5,11 @@ export interface IAnswer {
   text: string
 }
 
+export interface IResults {
+  id: number
+  status: boolean
+}
+
 export interface IQuizItem {
   id: number
   question: string

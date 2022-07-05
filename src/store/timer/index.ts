@@ -11,16 +11,19 @@ export default class TimerClass {
     makeAutoObservable(this)
   }
 
+  setTimer() {
+    this.timer -= 1
+  }
+
   stopTimer() {
     this.next = false
   }
-  setTimer() {
+  startTimer() {
     if (this.timer > 0) {
-      const start = setTimeout(() => {
-        console.log('next', this.next)
-        this.timer -= 1
+      setTimeout(() => {
+        this.setTimer()
         if (this.next) {
-          this.setTimer()
+          this.startTimer()
         }
       }, 1000)
     }
@@ -31,5 +34,9 @@ export default class TimerClass {
 
   setIsVisible(bool: boolean) {
     this.isVisible = bool
+  }
+
+  get appTimer() {
+    return this.timer
   }
 }

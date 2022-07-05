@@ -4,7 +4,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 
 import { Context } from '../../index'
 import { IAnswer } from '../../models'
+import ResultIndicator from '../../components/results/Results'
 import Navigation from '../../components/navigation/Navigation'
+import Points from '../../components/points/Points'
 
 const Question = () => {
   const { id } = useParams()
@@ -24,6 +26,12 @@ const Question = () => {
   }, [store.timer.timer])
 
   const clickHandler = (item: IAnswer) => {
+    //points logic
+    store.results.setPoints(item.status)
+
+    //results logic
+    store.results.setResults(Number(id), item.status)
+
     //render logic
     store.quizItem.onQuizItemClick(item.id)
     //timer logic
@@ -42,6 +50,8 @@ const Question = () => {
 
   return (
     <>
+      <Points />
+      <ResultIndicator />
       {store.quizItem.item?.id ? (
         <div>
           <h2>{store.quizItem.item.question}</h2>

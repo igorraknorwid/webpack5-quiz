@@ -18,3 +18,18 @@ h1 {
 .fault {
   background-color: rgb(71, 6, 6);
 }
+
+.results_test {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+
+  .result_test {
+    height: 20px;
+    background-color: darkgrey;
+  }
+  .active {
+    background-color: aquamarine;
+  }
+}

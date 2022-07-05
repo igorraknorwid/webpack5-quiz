@@ -3,17 +3,13 @@ import { observer } from 'mobx-react-lite'
 
 import { Context } from '../../index'
 
-const Header = () => {
+const Points = () => {
   const { store } = React.useContext(Context)
   return (
     <header className="header">
-      <div>
-        <h2>Quiz App</h2>
-
-        <div>Timer : {store.timer.appTimer}</div>
-      </div>
+      <div>YouPoints: {store.results.points}</div>
     </header>
   )
 }
 
-export default observer(Header)
+export default observer(Points)
