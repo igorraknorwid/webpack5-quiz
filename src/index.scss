@@ -27,9 +27,57 @@ h1 {
 
   .result_test {
     height: 20px;
-    background-color: darkgrey;
   }
-  .active {
+  .right {
     background-color: aquamarine;
+    height: 20px;
+    flex-grow: 1;
+  }
+
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  .active2 {
+    background-color: aquamarine;
+    height: 20px;
+    animation-name: myactive;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    flex-grow: 1;
+  }
+  .temprory {
+    background-color: darkgrey;
+    height: 20px;
+    animation-name: mytemprory;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    flex-grow: 0;
+  }
+  .normal {
+    background-color: darkgrey;
+    height: 20px;
+    flex-grow: 1;
+  }
+}
+@keyframes myactive {
+  0% {
+    flex-grow: 0;
+  }
+
+  100% {
+    flex-grow: 1;
+  }
+}
+@keyframes mytemprory {
+  0% {
+    flex-grow: 1;
+  }
+
+  100% {
+    flex-grow: 0;
   }
 }

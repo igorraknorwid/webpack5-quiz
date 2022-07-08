@@ -1,5 +1,5 @@
+import { IAnswer, IQuizItem } from './../../models/index'
 import { makeAutoObservable } from 'mobx'
-import { IQuizItem } from '../../models'
 
 const moke_quiz: IQuizItem[] = [
   {
@@ -183,5 +183,9 @@ export default class QuizItem {
         return { ...answer, clicked: false }
       }),
     }
+  }
+
+  setQuizItem(item: IQuizItem) {
+    this.item = item
   }
 }

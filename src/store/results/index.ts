@@ -16,6 +16,7 @@ export default class ResultsClass {
       this.points -= 10
     }
   }
+
   setResults(id: number, status: boolean) {
     const find = this.results.find((r) => r.id === id)
     if (find) {
@@ -24,5 +25,12 @@ export default class ResultsClass {
       const newResult = { id, status }
       this.results.push(newResult)
     }
+  }
+
+  refreshResults() {
+    this.results = this.results.map((r) => {
+      return { id: r.id, status: false }
+    })
+    this.points = 0
   }
 }

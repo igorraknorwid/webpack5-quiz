@@ -1,0 +1,7 @@
+#root {
+  background-color: aqua;
+}
+
+h1{background-color:#000;color:#f0f8ff}.item{padding:10px;cursor:pointer}.active{color:#f0f8ff}.right{background-color:#7cfc00}.fault{background-color:#470606}.results_test{display:flex;align-items:center;justify-content:center;height:20px}.results_test .result_test{height:20px;background-color:#a9a9a9}.results_test .active{background-color:#7fffd4;background-color:#a9a9a9;animation-name:example;animation-duration:4s}
+
+/*# sourceMappingURL=main.eacb1658756050d39d65.css.map*/

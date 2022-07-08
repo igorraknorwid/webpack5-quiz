@@ -9,16 +9,18 @@ import Input from '../../components/input/Input'
 const Start = () => {
   const { store } = React.useContext(Context)
 
+  const clickHandler = () => {
+    store.timer.startTimer()
+    store.setName()
+    store.setIsStart(true)
+  }
+
   return (
     <main className="main">
       <BrowserView>
         <Input />
         <nav>
-          <button
-            onClick={() => {
-              store.timer.startTimer()
-            }}
-          >
+          <button onClick={clickHandler}>
             <Link to="quiz/1">Start</Link>
           </button>
         </nav>

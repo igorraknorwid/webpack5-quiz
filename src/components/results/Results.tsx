@@ -6,20 +6,23 @@ import { Context } from '../../index'
 const ResultIndicator = () => {
   const { store } = React.useContext(Context)
 
-  console.log('results live:', store.results.results)
-
   const rightResult: number = store.results.results.filter((r) => r.status)
     .length
 
   return (
-    <div className="results_test" style={{ width: '1000px' }}>
+    <div className="results_test">
       {store.results.results.map((r, i) => {
         return (
-          <div
-            key={r.id}
-            className={`result_test ${i < rightResult && 'active'}`}
-            style={{ width: '200px' }}
-          ></div>
+          <>
+            {i < rightResult - 1 && <div key={i} className={`right`}></div>}
+            {i === rightResult - 1 && (
+              <div className="box" key={i}>
+                <div className={`active2`}></div>
+                <div className={`temprory`}></div>
+              </div>
+            )}
+            {i > rightResult - 1 && <div key={i} className={`normal`}></div>}
+          </>
         )
       })}
     </div>

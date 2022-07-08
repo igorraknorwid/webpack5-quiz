@@ -14,9 +14,13 @@ const Navigation = () => {
       navigate(`/quiz/${Number(id) + 1}`)
     } else {
       navigate(`/finish`)
+      store.setIsStart(false)
     }
   }
   const onRefreshClickHandler = () => {
+    store.results.refreshResults()
+    store.storage.refreshStorage()
+    store.timer.refreshTimer()
     navigate(`/quiz/1`)
   }
 

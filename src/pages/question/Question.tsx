@@ -3,10 +3,10 @@ import { observer } from 'mobx-react-lite'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 
 import { Context } from '../../index'
-import { IAnswer } from '../../models'
-import ResultIndicator from '../../components/results/Results'
+import { IAnswer, IQuizItem } from '../../models'
 import Navigation from '../../components/navigation/Navigation'
-import Points from '../../components/points/Points'
+import Info from '../../components/info/Info'
+import QuizTop from '../../components/quiztop/QuizTop'
 
 const Question = () => {
   const { id } = useParams()
@@ -14,28 +14,47 @@ const Question = () => {
   const navigate = useNavigate()
   React.useEffect(() => {
     if (id) {
-      store.quizItem.getMokeQuizItem(+id)
+      const findInStorage = store.storage.storage.find(
+        (item) => item.id === +id
+      )
+      if (findInStorage) {
+        store.quizItem.setQuizItem(findInStorage)
+      } else {
+        store.quizItem.getMokeQuizItem(+id)
+      }
+      // store.quizItem.getMokeQuizItem(+id)
     } else {
       navigate('/')
     }
   }, [id])
-  React.useEffect(() => {
-    if (store.timer.timer === 0) {
-      navigate('/finish')
-    }
-  }, [store.timer.timer])
 
-  const clickHandler = (item: IAnswer) => {
+  React.useEffect(() => {
+    const findInStorage = store.storage.storage.find(
+      (item) => item.id === store.quizItem.item.id
+    )
+    // const findClicedItem = store.quizItem.item.answers.find((a) => a.clicked)
+
+    if (findInStorage) {
+      console.log('findinstorage', findInStorage)
+      store.storage.mapStorage(store.quizItem.item)
+    } else {
+      store.storage.addItem(store.quizItem.item)
+    }
+
+    console.log('store.quizItem.item', store.quizItem.item)
+  }, [store.quizItem.item])
+
+  const clickHandler = (answer: IAnswer) => {
     //points logic
-    store.results.setPoints(item.status)
+    store.results.setPoints(answer.status)
 
     //results logic
-    store.results.setResults(Number(id), item.status)
+    store.results.setResults(Number(id), answer.status)
 
     //render logic
-    store.quizItem.onQuizItemClick(item.id)
+    store.quizItem.onQuizItemClick(answer.id)
     //timer logic
-    if (item.status) {
+    if (answer.status) {
       store.timer.addTime(10)
     }
     // navigation
@@ -44,14 +63,15 @@ const Question = () => {
         navigate(`/quiz/${Number(id) + 1}`)
       } else {
         navigate(`/finish`)
+        store.setIsStart(false)
       }
-    }, 1000)
+    }, 2000)
   }
-
+  console.log('storage:', store.storage.storage)
   return (
     <>
-      <Points />
-      <ResultIndicator />
+      <QuizTop />
+      <Info />
       {store.quizItem.item?.id ? (
         <div>
           <h2>{store.quizItem.item.question}</h2>
