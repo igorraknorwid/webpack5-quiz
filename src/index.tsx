@@ -2,8 +2,8 @@ import ReactDOM from 'react-dom'
 import React, { createContext } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
-import './index.css'
-import './index.scss'
+import './styles/index.css'
+import './styles/index.scss'
 import appStore from './store/store'
 
 interface State {

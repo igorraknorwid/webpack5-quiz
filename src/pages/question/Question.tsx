@@ -1,9 +1,9 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import { Context } from '../../index'
-import { IAnswer, IQuizItem } from '../../models'
+import { IAnswer } from '../../models'
 import Navigation from '../../components/navigation/Navigation'
 import Info from '../../components/info/Info'
 import QuizTop from '../../components/quiztop/QuizTop'
@@ -22,7 +22,6 @@ const Question = () => {
       } else {
         store.quizItem.getMokeQuizItem(+id)
       }
-      // store.quizItem.getMokeQuizItem(+id)
     } else {
       navigate('/')
     }

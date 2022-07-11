@@ -1,18 +1,22 @@
 import React from 'react'
 import { observer } from 'mobx-react-lite'
-
-import { Context } from '../../index'
-import Hello from '../hello/Hello'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
-  const { store } = React.useContext(Context)
   return (
-    <header className="header">
+    <header className="p-3 mb-2 bg-primary text-white">
       <div>
-        <h2>Quiz App</h2>
-        <div>GitHub</div>
-        {/* {store.name&&<Hello name={store.name} />}
-        {store.isStart&& <div>Timer : {store.timer.appTimer}</div>}        */}
+        <Link to="/">
+          {' '}
+          <h2>Quizes</h2>
+        </Link>
+        <a
+          href="https://github.com/igorraknorwid/webpack5-quiz"
+          rel="noreferrer"
+          target="_blank"
+        >
+          Git Hub
+        </a>
       </div>
     </header>
   )

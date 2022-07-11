@@ -1,0 +1,11 @@
+@import './reset.scss';
+@import './item.scss';
+@import './results_line.scss';
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
