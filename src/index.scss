@@ -34,36 +34,66 @@ h1 {
     flex-grow: 1;
   }
 
-  .box {
+  .plus {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-grow: 1;
   }
 
-  .active2 {
+  .plus__active {
     background-color: aquamarine;
     height: 20px;
-    animation-name: myactive;
+    animation-name: plus_active;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     flex-grow: 1;
   }
-  .temprory {
+  .plus__normal {
     background-color: darkgrey;
     height: 20px;
-    animation-name: mytemprory;
+    animation-name: plus_normal;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
     flex-grow: 0;
   }
+
+  .fault {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  .fault__active {
+    background-color: aquamarine;
+    height: 20px;
+    animation-name: fault_active;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    flex-grow: 0;
+  }
+  .fault__normal {
+    background-color: darkgrey;
+    height: 20px;
+    animation-name: fault_normal;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    flex-grow: 1;
+  }
+
   .normal {
     background-color: darkgrey;
     height: 20px;
     flex-grow: 1;
   }
+  .warning {
+    background-color: red;
+    height: 20px;
+    flex-grow: 1;
+  }
 }
-@keyframes myactive {
+@keyframes plus_active {
   0% {
     flex-grow: 0;
   }
@@ -72,12 +102,31 @@ h1 {
     flex-grow: 1;
   }
 }
-@keyframes mytemprory {
+@keyframes plus_normal {
   0% {
     flex-grow: 1;
   }
 
   100% {
     flex-grow: 0;
+  }
+}
+
+@keyframes fault_active {
+  0% {
+    flex-grow: 1;
+  }
+
+  100% {
+    flex-grow: 0;
+  }
+}
+@keyframes fault_normal {
+  0% {
+    flex-grow: 0;
+  }
+
+  100% {
+    flex-grow: 1;
   }
 }

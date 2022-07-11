@@ -6,7 +6,7 @@ const QuestionIndicator = () => {
   const { store } = React.useContext(Context)
   return (
     <div>
-      Question {store.quizItem.item.id} of {store.length}
+      Question {store.quizItem.item.id} of {store.quizItem.quizLength}
     </div>
   )
 }

@@ -6,24 +6,31 @@ import { Context } from '../../index'
 const ResultIndicator = () => {
   const { store } = React.useContext(Context)
 
-  const rightResult: number = store.results.results.filter((r) => r.status)
-    .length
-
   return (
     <div className="results_test">
       {store.results.results.map((r, i) => {
-        return (
-          <>
-            {i < rightResult - 1 && <div key={i} className={`right`}></div>}
-            {i === rightResult - 1 && (
-              <div className="box" key={i}>
-                <div className={`active2`}></div>
-                <div className={`temprory`}></div>
-              </div>
-            )}
-            {i > rightResult - 1 && <div key={i} className={`normal`}></div>}
-          </>
-        )
+        if (r.status === 'correct') {
+          return <div key={r.id} className="right"></div>
+        }
+        if (r.status === 'plus') {
+          return (
+            <div key={r.id} className="plus">
+              <div className={`plus__active`}></div>
+              <div className={`plus__normal`}></div>
+            </div>
+          )
+        }
+        if (r.status === 'fault') {
+          return (
+            <div key={r.id} className="fault">
+              <div className={`fault__active`}></div>
+              <div className={`fault__normal`}></div>
+            </div>
+          )
+        }
+        if (r.status === 'init') {
+          return <div key={r.id} className="normal"></div>
+        }
       })}
     </div>
   )

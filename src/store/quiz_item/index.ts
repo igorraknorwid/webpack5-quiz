@@ -128,7 +128,7 @@ const moke_quiz: IQuizItem[] = [
   },
   {
     id: 5,
-    next: false,
+    next: true,
     question: 'Question 5',
     answers: [
       {
@@ -157,11 +157,44 @@ const moke_quiz: IQuizItem[] = [
       },
     ],
   },
+  {
+    id: 6,
+    next: false,
+    question: 'Question from Dima: When parents will buy me a Motorolla?',
+    answers: [
+      {
+        id: 1,
+        clicked: false,
+        status: false,
+        text: 'Jully',
+      },
+      {
+        id: 2,
+        clicked: false,
+        status: false,
+        text: 'October',
+      },
+      {
+        id: 3,
+        clicked: false,
+        status: true,
+        text: 'September',
+      },
+      {
+        id: 4,
+        clicked: false,
+        status: false,
+        text: 'August',
+      },
+    ],
+  },
 ]
 
 export default class QuizItem {
+  quizLength: number
   item: IQuizItem
   constructor() {
+    this.quizLength = moke_quiz.length
     this.item = {} as IQuizItem
     makeAutoObservable(this)
   }

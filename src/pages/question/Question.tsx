@@ -35,21 +35,22 @@ const Question = () => {
     // const findClicedItem = store.quizItem.item.answers.find((a) => a.clicked)
 
     if (findInStorage) {
-      console.log('findinstorage', findInStorage)
+      // console.log('findinstorage', findInStorage)
       store.storage.mapStorage(store.quizItem.item)
     } else {
       store.storage.addItem(store.quizItem.item)
     }
 
-    console.log('store.quizItem.item', store.quizItem.item)
+    // console.log('store.quizItem.item', store.quizItem.item)
   }, [store.quizItem.item])
 
   const clickHandler = (answer: IAnswer) => {
+    //attempts logic
+
+    store.results.setAttempts(Number(id), answer.status)
+
     //points logic
     store.results.setPoints(answer.status)
-
-    //results logic
-    store.results.setResults(Number(id), answer.status)
 
     //render logic
     store.quizItem.onQuizItemClick(answer.id)
@@ -67,7 +68,7 @@ const Question = () => {
       }
     }, 2000)
   }
-  console.log('storage:', store.storage.storage)
+
   return (
     <>
       <QuizTop />

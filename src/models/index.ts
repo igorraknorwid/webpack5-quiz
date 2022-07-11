@@ -7,7 +7,7 @@ export interface IAnswer {
 
 export interface IResults {
   id: number
-  status: boolean
+  status: string
 }
 
 export interface IQuizItem {

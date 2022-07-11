@@ -8,12 +8,12 @@ export default class StorageClass {
     makeAutoObservable(this)
   }
   addItem(item: IQuizItem) {
-    console.log('ADD TO STORAGE')
+    // console.log('ADD TO STORAGE')
     this.storage.push(item)
   }
 
   mapStorage(value: IQuizItem) {
-    console.log('mapStorage', value)
+    // console.log('mapStorage', value)
     this.storage = this.storage.map((item) => {
       if (item.id === value.id) {
         return value
