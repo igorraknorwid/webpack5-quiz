@@ -5,7 +5,7 @@ export default class TimerClass {
   timer: number
   next: boolean
   constructor() {
-    this.timer = 600
+    this.timer = 60
     this.isVisible = false
     this.next = true
     makeAutoObservable(this)
@@ -16,7 +16,7 @@ export default class TimerClass {
   }
 
   refreshTimer() {
-    this.timer = 600
+    this.timer = 60
   }
 
   stopTimer() {

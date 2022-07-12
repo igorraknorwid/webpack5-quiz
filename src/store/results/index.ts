@@ -69,9 +69,7 @@ export default class ResultsClass {
   }
 
   refreshResults() {
-    this.results.map((r) => {
-      r.status = 'init'
-    })
+    this.results = []
   }
 
   refreshPoints() {

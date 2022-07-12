@@ -28,9 +28,26 @@ export default class Store {
       for (let index = 0; index < this.quizItem.quizLength; index++) {
         this.results.initResults(index + 1)
       }
+      this.name = ''
+      this.timer.timer = 60
+      this.results.points = 0
+      this.results.attempts = []
     })
     makeAutoObservable(this)
   }
+
+  refreshAll() {
+    console.log('refreshAll')
+    this.results.results = []
+    this.name = ''
+    this.timer.timer = 60
+    this.results.points = 0
+    this.results.attempts = []
+    for (let index = 0; index < this.quizItem.quizLength; index++) {
+      this.results.initResults(index + 1)
+    }
+  }
+
   setName() {
     if (this.input.value) {
       this.name = this.input.value

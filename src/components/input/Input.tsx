@@ -16,7 +16,7 @@ const Input = () => {
         value={store.input.value}
         onChange={inputHandler}
         placeholder="Tape you name..."
-        className="input"
+        className="form-control mb-2"
       />
     </div>
   )
